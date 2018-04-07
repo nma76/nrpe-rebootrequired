@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 // Main function
@@ -45,7 +46,7 @@ func checkNrpe(nrpeStatus *NrpeStatus) {
 			pkgs, err := ioutil.ReadFile(rebootRequiredPkgs)
 			if err != nil {
 			} else {
-				pkgsString := string(pkgs)
+				pkgsString := strings.Replace(string(pkgs), "\n", ", ", -1)
 				nrpeStatus.Message = fmt.Sprintf("System needs reboot! Responsible packages: %s", pkgsString)
 			}
 		}
