@@ -17,7 +17,7 @@ func main() {
 	checkNrpe(&nrpeStatus)
 
 	//Print status message and exit with correct code
-	fmt.Println(nrpeStatus.Code)
+	// fmt.Println(nrpeStatus.Code)
 	fmt.Println(nrpeStatus.Message)
 	os.Exit(int(nrpeStatus.Code))
 }
