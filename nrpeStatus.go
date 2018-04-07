@@ -1,5 +1,6 @@
 package main
 
+//ReturnStatus is a custom type used to mimic a enumeration
 type ReturnStatus int
 
 // All available return codes
@@ -10,7 +11,7 @@ const (
 	UNKNOWN  ReturnStatus = 3
 )
 
-// Return value struct
+//NrpeStatus is the return value
 type NrpeStatus struct {
 	Message string
 	Code    ReturnStatus
