@@ -26,14 +26,22 @@ func checkNrpe(nrpeStatus *NrpeStatus) {
 
 	//Check if reboot-required file exists
 	var rebootRequiredFile = "/var/run/reboot-required"
-	if _, err := os.Stat(rebootRequiredFile); os.IsExist(err) {
+
+	if _, err := os.Stat(rebootRequiredFile); os.IsNotExist(err) {
+		nrpeStatus.Code = OK
+		nrpeStatus.Message = "Reboot not required."
+	} else {
 		//The file exists, system needs reboot.
 		nrpeStatus.Message = "System needs reboot!"
 		nrpeStatus.Code = WARNING
 
 		//Get the reason why by reading the contents of reboot-required.pkgs
 		var rebootRequiredPkgs = rebootRequiredFile + ".pkgs"
-		if _, err := os.Stat(rebootRequiredPkgs); os.IsExist(err) {
+		if _, err := os.Stat(rebootRequiredPkgs); os.IsNotExist(err) {
+			//File didn't exist, reason is unknown
+			nrpeStatus.Message = "System needs reboot! Responsible packages: unknown"
+		} else {
+			//Read content of file to get the reason
 			pkgs, err := ioutil.ReadFile(rebootRequiredPkgs)
 			if err != nil {
 			} else {
@@ -41,8 +49,5 @@ func checkNrpe(nrpeStatus *NrpeStatus) {
 				nrpeStatus.Message = fmt.Sprintf("System needs reboot! Responsible packages: %s", pkgsString)
 			}
 		}
-	} else {
-		nrpeStatus.Code = OK
-		nrpeStatus.Message = "Reboot not required."
 	}
 }

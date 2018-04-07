@@ -14,3 +14,4 @@
 # Project executable in non-windows environment
 debug
 main
+nrpe-rebootrequired
