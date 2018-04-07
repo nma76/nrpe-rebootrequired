@@ -6,11 +6,12 @@ Ubuntu 16.04 LTS
   
 **Currently this plugin return status**  
 
-| Status  | Message                                                                |
-| ------- | ---------------------------------------------------------------------- |
-| OK      | when no reboot is required                                             |
-| WARNING | when reboot is required. Reason for the rebbot is shown in the message |
-| UNKNOWN | when the plugin is unable to get any status                            |
+| Status   | Message                                                                |
+| -------- | ---------------------------------------------------------------------- |
+| OK       | when no reboot is required                                             |
+| WARNING  | when reboot is required. Reason for the rebbot is shown in the message |
+| CRITICAL | when reboot has been required for more than 2 days (48 hours)          |
+| UNKNOWN  | when the plugin is unable to get any status                            |
 
 **TODO**  
-- Return CRITICAL if the reboot has been waiting for a long time
+- Implement a cleaner way to handle messages

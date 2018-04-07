@@ -37,7 +37,7 @@ func checkNrpe(nrpeStatus *NrpeStatus) {
 	} else {
 		//Check age of reboot-required. If older than a day, set status to CRITICAL, else set status to WARNING
 		var rebootRequiredFileAge = time.Now().Sub(fileInfo.ModTime())
-		if rebootRequiredFileAge.Hours() >= 24 {
+		if rebootRequiredFileAge.Hours() >= 48 {
 			nrpeStatus.Code = CRITICAL
 		} else {
 			nrpeStatus.Code = WARNING
