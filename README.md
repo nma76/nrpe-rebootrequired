@@ -5,6 +5,7 @@ This plugin monitors the need for reboot on Ubuntu/Debian systems. It also shows
 Ubuntu 16.04 LTS  
   
 **Currently this plugin return status**  
+
 | Status  | Message                                                                |
 | ------- | ---------------------------------------------------------------------- |
 | OK      | when no reboot is required                                             |
