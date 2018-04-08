@@ -13,5 +13,9 @@ Ubuntu 16.04 LTS
 | CRITICAL | when reboot has been required for more than 2 days (48 hours)          |
 | UNKNOWN  | when the plugin is unable to get any status                            |
 
+**Compile**
+Just make sure yoou have Go installed and run:
+- Go build
+
 **TODO**  
 - Implement a cleaner way to handle messages
