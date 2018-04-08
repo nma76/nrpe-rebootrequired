@@ -32,10 +32,11 @@ func checkNrpe(nrpeStatus *NrpeStatus) {
 	var rebootRequiredFile = "/var/run/reboot-required"
 
 	if fileInfo, err := os.Stat(rebootRequiredFile); os.IsNotExist(err) {
+		//Reboot not required
 		nrpeStatus.Code = OK
 		nrpeStatus.Message = "Reboot not required."
 	} else {
-		//Check age of reboot-required. If older than a day, set status to CRITICAL, else set status to WARNING
+		//Check age of reboot-required. If older than two days, set status to CRITICAL, else set status to WARNING
 		var rebootRequiredFileAge = time.Now().Sub(fileInfo.ModTime())
 		if rebootRequiredFileAge.Hours() >= 48 {
 			nrpeStatus.Code = CRITICAL

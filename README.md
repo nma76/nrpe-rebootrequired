@@ -1,5 +1,5 @@
 # nrpe-rebootrequired
-This plugin monitors the need for reboot on Ubuntu/Debian systems. It also shows the reason reboot is required. Should work on Ubunto 8.04 and newer. Possibly even older systems if you install the update-notifier-common package. Other dists are unknown and untested.  
+This plugin monitors the need for reboot on Ubuntu/Debian systems. It also shows the reason reboot is required. Should work on Ubuntu 8.04 and newer. Possibly even older systems if you install the update-notifier-common package. Other dists are unknown and untested.  
 
 **Tested platforms**:  
 Ubuntu 16.04 LTS  
@@ -14,7 +14,7 @@ Ubuntu 16.04 LTS
 | UNKNOWN  | when the plugin is unable to get any status                            |
 
 **Compile**  
-Just make sure yoou have Go installed and run:  
+Just make sure you have Go installed and run:  
 - Go build
 
 **TODO**  
