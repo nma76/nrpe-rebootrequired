@@ -15,3 +15,6 @@
 debug
 main
 nrpe-rebootrequired
+
+#Visual Studio
+.vscode
