@@ -19,3 +19,5 @@ Just make sure you have Go installed and run:
 
 **TODO**  
 - Implement a cleaner way to handle messages
+- Show for how long reboot benn waiting
+- Better install instructions and examples of nrpe configuration
