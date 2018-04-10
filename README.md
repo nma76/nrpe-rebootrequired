@@ -14,8 +14,21 @@ Ubuntu 16.04 LTS
 | UNKNOWN  | when the plugin is unable to get any status                            |
 
 **Compile**  
-Just make sure you have Go installed and run:  
-- Go build
+- Make sure you have Go installed  
+- Run Go build
+
+**Install**  
+Copy the binary (nrpe-rebootrequired) to your Nagios plugin folder. On Ubuntu this is typically located at /usr/lib/nagios/plugins. Make sure it's executable. You can run chmod +x nrpe-rebootrequired to make it executable.  
+  
+Add a command to your nagios configuration. On Ubuntu systems you usually add commands to /etc/nagios/nrpe_local.cfg. A command has the syntax:   
+`command[<Commandname>]=<Executable>`  
+  
+For this check you could add the following command:  
+`command[check_rebootrequired]=/usr/lib/nagios/plugins/nrpe-rebootrequired`  
+  
+Make sure to restart the nagios/nrpe service before you use this command. On Ubuntu you can execute `/etc/init.d/nagios-nrpe-server restart`
+  
+On your Nagios/OP5 server, create a new check of the type check_nrpe and enter check_rebootrequired as the command.
 
 **TODO**  
 - Implement a cleaner way to handle messages
