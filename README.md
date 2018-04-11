@@ -34,3 +34,4 @@ On your Nagios/OP5 server, create a new check of the type check_nrpe and enter c
 - Implement a cleaner way to handle messages
 - Show for how long reboot benn waiting
 - Better install instructions and examples of nrpe configuration
+- Parameterize timespan before status is set to CRITICAL
